@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:21:30 by jocardos          #+#    #+#             */
-/*   Updated: 2022/06/14 10:53:29 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/09/22 12:10:48 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*read_aux_str(int fd, char *aux_str)
 	if (!buffer)
 		return (NULL);
 	reader_bytes = 1;
-	while (!ft_strchr(aux_str, '\n') && reader_bytes != 0)
+	while (!gnl_strchr(aux_str, '\n') && reader_bytes != 0)
 	{
 		reader_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (reader_bytes == -1)
@@ -30,7 +30,7 @@ char	*read_aux_str(int fd, char *aux_str)
 			return (NULL);
 		}
 		buffer[reader_bytes] = '\0';
-		aux_str = ft_strjoin(aux_str, buffer);
+		aux_str = gnl_strjoin(aux_str, buffer);
 	}
 	free(buffer);
 	return (aux_str);

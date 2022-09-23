@@ -11,11 +11,22 @@ CFLAGS	= -Wall -Wextra -Werror -I
 
 #Styles
 
-SET_COLOR	= \033[0;39m
-GREEN		= \033[0;32m
-BLUE		= \033[0;34m
-CYAN		= \033[0;36m
-BG_GREEN	= \033[42;1;37m
+SET_COLOR	= \e[39m
+RED				= \e[31m
+GREEN			= \e[32m
+YELLOW		= \e[33m
+BLUE			= \e[34m
+MAGENTA		= \e[35m
+CYAN			= \e[36m
+GRAY			= \e[90m
+L_RED			=	\e[91m
+L_GREEN		=	\e[92m
+L_YELLOW	=	\e[93m
+L_BLUE		=	\e[94m
+L_MAGENTA	=	\e[95m
+L_CYAN		=	\e[96m
+WHITE			= \e[97m
+BG_GREEN	= \e[42;1;37m
 
 #Sources
 
@@ -41,7 +52,7 @@ OBJF		= .cache_exists
 
 start:
 			@echo -e -n "🖥️$(SET_COLOR)  "
-			@echo -e -n "$(CYAN)LIBFT:$(SET_COLOR) "
+			@echo -e -n "$(L_CYAN)LIBFT:$(SET_COLOR) "
 			@echo -e -n "$(WHITE)[$(SET_COLOR)"
 			@make all
 
@@ -50,12 +61,12 @@ all:	$(NAME)
 $(NAME):	$(OBJ)
 			@$(AR) $(NAME) $(OBJ)
 			@echo -e -n "$(WHITE)]$(SET_COLOR)"
-			@echo -e -n " $(GREEN)->$(SET_COLOR) "
-			@echo -e -n "$(GREEN)Compilação concluída$(SET_COLOR) "
-			@echo -e "$(GREEN)✅$(SET_COLOR)"
+			@echo -e -n " $(L_GREEN)->$(SET_COLOR)"
+			@echo -e -n "$(L_GREEN) Completed$(SET_COLOR)"
+			@echo -e "$(GREEN) ✅$(SET_COLOR)"
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | ${OBJF}
-			@echo -e -n "$(GREEN)✓$(SET_COLOR)"
+			@echo -e -n "$(L_GREEN)✓$(SET_COLOR)"
 			@$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 $(OBJF):
@@ -68,15 +79,15 @@ $(OBJF):
 clean:
 		@$(RM) -r $(OBJ_DIR)
 		@$(RM) $(OBJF)
-		@echo -e -n "$(BLUE)Arquivos objetos$(SET_COLOR)$(GREEN)  -> Excluídos$(SET_COLOR) "
+		@echo -e -n "$(MAGENTA)[LIBFT]:$(SET_COLOR)$(BLUE) Object files$(SET_COLOR)$(GREEN)  => Cleaned$(SET_COLOR)"
 		@echo -e "$(GREEN)🗑️$(SET_COLOR)"
 
 fclean:	clean	
 		@$(RM) $(NAME)
-		@echo -e -n "$(CYAN)Arquivos executáveis$(SET_COLOR)$(GREEN)  -> Excluídos$(SET_COLOR) "
+		@echo -e -n "$(MAGENTA)[LIBFT]:$(SET_COLOR)$(BLUE) Object files$(SET_COLOR)$(GREEN)  => Cleaned$(SET_COLOR)"
 		@echo -e "$(GREEN)🗑️$(SET_COLOR)"
 
 re:	fclean start
-	@echo -e -n "\n $(BG_GREEN) => Arquivos excluídos e recompilados <= $(SET_COLOR)\n"
+	@echo -e "\n$(BG_GREEN) => Cleaned and rebuilt everything <= $(SET_COLOR)"
 
-.PHONY:	all bonus  clean fclean re
+.PHONY:	all bonus clean fclean re

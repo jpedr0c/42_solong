@@ -6,13 +6,13 @@
 /*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 09:55:53 by jocardos          #+#    #+#             */
-/*   Updated: 2022/05/25 13:59:47 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/09/22 12:14:14 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *s)
+size_t	gnl_strlen(char *s)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*gnl_strchr(char *s, int c)
 {
 	size_t	i;
 
@@ -42,7 +42,7 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *aux_str, char *buffer)
+char	*gnl_strjoin(char *aux_str, char *buffer)
 {
 	char	*str;
 	size_t	i1;
@@ -55,7 +55,7 @@ char	*ft_strjoin(char *aux_str, char *buffer)
 	}
 	if (!aux_str || !buffer)
 		return (NULL);
-	str = malloc(sizeof(char) * (ft_strlen(aux_str) + ft_strlen(buffer) + 1));
+	str = malloc(sizeof(char) * (gnl_strlen(aux_str) + gnl_strlen(buffer) + 1));
 	if (!str)
 		return (NULL);
 	i1 = -1;
@@ -65,7 +65,7 @@ char	*ft_strjoin(char *aux_str, char *buffer)
 	i2 = 0;
 	while (buffer[i2])
 		str[i1++] = buffer[i2++];
-	str[ft_strlen(aux_str) + ft_strlen(buffer)] = '\0';
+	str[gnl_strlen(aux_str) + gnl_strlen(buffer)] = '\0';
 	free(aux_str);
 	return (str);
 }
@@ -112,7 +112,7 @@ char	*new_aux_str(char *aux_str)
 		free(aux_str);
 		return (NULL);
 	}
-	str = malloc(sizeof(char) * (ft_strlen(aux_str) - a + 1));
+	str = malloc(sizeof(char) * (gnl_strlen(aux_str) - a + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
