@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   configuration.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
+/*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 13:50:09 by jocardos          #+#    #+#             */
-/*   Updated: 2022/09/22 22:38:09 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:05:00 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	put_image(int x, int y, t_game *game, void *img)
 	mlx_put_image_to_window(game->mlx, game->window, img, x, y);
 }
 
-void	change_exit_image(t_game *game, char *new_image)
+void	change_player_image(t_game *game, char *new_image)
 {
-	mlx_destroy_image(game->mlx, game->exit);
-	game->exit = get_image(game, new_image);
+	mlx_destroy_image(game->mlx, game->player);
+	game->player = get_image(game, new_image);
 }

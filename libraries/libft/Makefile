@@ -11,22 +11,22 @@ CFLAGS	= -Wall -Wextra -Werror -I
 
 #Styles
 
-SET_COLOR	= \e[39m
-RED				= \e[31m
-GREEN			= \e[32m
-YELLOW		= \e[33m
-BLUE			= \e[34m
-MAGENTA		= \e[35m
-CYAN			= \e[36m
-GRAY			= \e[90m
-L_RED			=	\e[91m
-L_GREEN		=	\e[92m
-L_YELLOW	=	\e[93m
-L_BLUE		=	\e[94m
-L_MAGENTA	=	\e[95m
-L_CYAN		=	\e[96m
-WHITE			= \e[97m
-BG_GREEN	= \e[42;1;37m
+SET_COLOR	= \033[0:39m
+RED				= \033[0;31m
+GREEN			= \033[0;32m
+YELLOW		= \033[0;33m
+BLUE			= \033[0;34m
+MAGENTA		= \033[0;35m
+CYAN			= \033[0;36m
+GRAY			= \033[0;90m
+L_RED			=	\033[0;91m
+L_GREEN		=	\033[0;92m
+L_YELLOW	=	\033[0;93m
+L_BLUE		=	\033[0;94m
+L_MAGENTA	=	\033[0;95m
+L_CYAN		=	\033[0;96m
+WHITE			= \033[0;97m
+BG_GREEN	= \033[42;1;37m
 
 #Sources
 

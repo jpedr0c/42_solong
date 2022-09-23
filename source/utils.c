@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
+/*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:11:14 by jocardos          #+#    #+#             */
-/*   Updated: 2022/09/22 22:27:28 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:21:28 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void message_finish_game(void)
 void print_steps(t_game *game)
 {
   game->count_steps++;
-  ft_printf("\e[3;93mSteps:\e[0m\e[1;96m %d\e[0m\n", game->count_steps);
+  ft_printf("\e[3;95mSteps:\e[0m\e[1;96m %d\e[0m\n", game->count_steps);
 }
 
 void free_map(char **map)

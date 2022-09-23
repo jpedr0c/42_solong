@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
+/*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 10:20:41 by jocardos          #+#    #+#             */
-/*   Updated: 2022/09/22 22:39:04 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:04:06 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,20 @@
 # define PIXELS 63
 
 // For Linux
-# define KEY_UP 119
-# define KEY_DOWN 115
-# define KEY_LEFT 97
-# define KEY_RIGHT 100
-# define KEY_ESC 65307
-# define KEY_RESTART 15
-
-// For MAC
-// # define KEY_UP 13
-// # define KEY_DOWN 1
-// # define KEY_LEFT 0
-// # define KEY_RIGHT 2
-// # define KEY_ESC 53
+// # define KEY_UP 119
+// # define KEY_DOWN 115
+// # define KEY_LEFT 97
+// # define KEY_RIGHT 100
+// # define KEY_ESC 65307
 // # define KEY_RESTART 15
 
-// typedef struct s_player
-// {
-// 	int			x_pos;
-// 	int			y_pos;
-// }				t_player;
+// For MAC
+# define KEY_UP 13
+# define KEY_DOWN 1
+# define KEY_LEFT 0
+# define KEY_RIGHT 2
+# define KEY_ESC 53
+# define KEY_RESTART 15
 
 typedef struct s_game
 {
@@ -65,11 +59,12 @@ typedef struct s_game
 	char		**map_copy;
 	int			count_steps;
 	int			count_coins;
-	// int			reachable_collectibles_count;
+	int			available_coins;
 	int			count_players;
 	int			count_exits;
-	// int			reachable_exits_count;
+	int			available_exits;
 	int			finish_game;
+	int			collected;
 	int			columns;
 	int			rows;
 	int			player_x;
@@ -91,7 +86,7 @@ int close_game(t_game *game);
 void  *get_image(t_game *game, char *path);
 int config_game(t_game *game);
 void	put_image(int x, int y, t_game *game, void *img);
-void	change_exit_image(t_game *game, char *new_image);
+void	change_player_image(t_game *game, char *new_image);
 
 //CONSTRUCT MAP
 int valid_file_extension(char *path);
@@ -103,5 +98,19 @@ int multiple_newline(char *str);
 char *read_file(int fd);
 void  set_limits_for_map(t_game *game);
 char **generate_map(t_game *game, char *path);
+
+//EVENTS
+void collected_coins(t_game *game);
+int player_can_move(t_game *game, int x, int y);
+void	move_player(t_game *game, int new_x_pos, int new_y_pos);
+void	move(int keycode, t_game *game);
+int	handle_keypress(int keycode, t_game *game);
+
+//CHECKING MAP
+void init_vars(t_game *game);
+void count_elements_in_map(t_game *game);
+int rule_num_of_elements(t_game *game);
+void count_available_elements(t_game *game, int px, int py);
+
 
 #endif

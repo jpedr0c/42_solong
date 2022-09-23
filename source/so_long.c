@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jocardos <jocardos@student.42.rio>         +#+  +:+       +#+        */
+/*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 17:16:18 by jocardos          #+#    #+#             */
-/*   Updated: 2022/09/22 21:09:06 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:08:50 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(int argc, char **argv)
     return(0);
   config_game(&game);
   construct_map(&game);
+  mlx_hook(game.window, 2, 1L << 0, handle_keypress, &game);
   mlx_hook(game.window, 17, 1L << 2, close_game, &game);
   mlx_loop_hook(game.mlx, &construct_map, &game);
   mlx_loop(game.mlx);
