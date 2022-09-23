@@ -6,47 +6,46 @@
 /*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 16:11:14 by jocardos          #+#    #+#             */
-/*   Updated: 2022/09/23 14:21:28 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:12:09 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int error(char *error)
+int	error(char *error)
 {
-  ft_printf("\e[31mError: %s\e[0m\n", error);
-  return(1);
+	ft_printf("\e[31mError: %s\e[0m\n", error);
+	return (1);
 }
 
-void message_finish_game(void)
+void	message_finish_game(void)
 {
-  ft_printf("\n\t\e[42;1;37mYOU WIN 🏆\e[0m\n");
-  ft_printf("\n\e[1;97mPress ESC or click in X button to close game.\e[0m\n\n");
+	ft_printf("\n\t\e[42;1;37mYOU WIN 🏆\e[0m\n");
+	ft_printf("\n\e[1;97mPress ESC or click in X button to close game.\e[0m\n\n");
 }
 
-void print_steps(t_game *game)
+void	print_steps(t_game *game)
 {
-  game->count_steps++;
-  ft_printf("\e[3;95mSteps:\e[0m\e[1;96m %d\e[0m\n", game->count_steps);
+	game->count_steps++;
+	ft_printf("\e[3;95mSteps:\e[0m\e[1;96m %d\e[0m\n", game->count_steps);
 }
 
-void free_map(char **map)
+void	free_map(char **map)
 {
-  int i;
+	int	i;
 
-  i = 0;
-  while (map[i])
-  {
-    free(map[i]);
-    i++;
-  }
-  free(map);
-  
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }
 
-int close_game(t_game *game)
+int	close_game(t_game *game)
 {
-  mlx_destroy_image(game->mlx, game->wall);
+	mlx_destroy_image(game->mlx, game->wall);
 	mlx_destroy_image(game->mlx, game->floor);
 	mlx_destroy_image(game->mlx, game->exit);
 	mlx_destroy_image(game->mlx, game->coin);

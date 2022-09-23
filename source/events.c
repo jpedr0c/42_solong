@@ -6,31 +6,31 @@
 /*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 12:52:39 by jocardos          #+#    #+#             */
-/*   Updated: 2022/09/23 14:25:35 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:18:49 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void collected_coins(t_game *game)
+void	collected_coins(t_game *game)
 {
-    game->count_coins--;
-    game->collected++;
-    ft_printf("\e[1;93mCoins:\e[0m\e[1;97m %d💰\e[0m\n", game->collected);
-    if (game->count_coins == 0)
-    {
-        mlx_destroy_image(game->mlx, game->exit);
-	    game->exit = get_image(game, EXIT_OPEN);
-    }
+	game->count_coins--;
+	game->collected++;
+	ft_printf("\e[1;93mCoins:\e[0m\e[1;97m %d💰\e[0m\n", game->collected);
+	if (game->count_coins == 0)
+	{
+		mlx_destroy_image(game->mlx, game->exit);
+		game->exit = get_image(game, EXIT_OPEN);
+	}
 }
 
-int player_can_move(t_game *game, int x, int y)
+int	player_can_move(t_game *game, int x, int y)
 {
-    if (game->map[x][y] == '1')
-        return(0);
-    if (game->map[x][y] == 'E' && game->count_coins != 0)
-        return(0);
-    return(1);
+	if (game->map[x][y] == '1')
+		return (0);
+	if (game->map[x][y] == 'E' && game->count_coins != 0)
+		return (0);
+	return (1);
 }
 
 void	move_player(t_game *game, int new_x_pos, int new_y_pos)
@@ -53,7 +53,10 @@ void	move_player(t_game *game, int new_x_pos, int new_y_pos)
 		game->map[new_x_pos][new_y_pos] = 'P';
 	print_steps(game);
 	if (game->finish_game)
+	{
 		message_finish_game();
+		close_game(game);
+	}
 }
 
 void	move(int keycode, t_game *game)

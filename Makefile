@@ -6,7 +6,7 @@
 #    By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/08 11:23:57 by jocardos          #+#    #+#              #
-#    Updated: 2022/09/23 14:46:10 by jocardos         ###   ########.fr        #
+#    Updated: 2022/09/23 16:07:03 by jocardos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ BG_GREEN	= \033[42;1;37m
 
 #Sources
 
-SRC_FILES			= so_long configuration utils construct_map generate_map events checking_map
+SRC_FILES			= so_long configuration utils construct_map generate_map events checking_map validation_map
 
 SRC = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

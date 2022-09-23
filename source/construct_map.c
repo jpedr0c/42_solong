@@ -6,28 +6,28 @@
 /*   By: jocardos <jocardos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 17:50:50 by jocardos          #+#    #+#             */
-/*   Updated: 2022/09/23 13:21:00 by jocardos         ###   ########.fr       */
+/*   Updated: 2022/09/23 17:12:23 by jocardos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int valid_file_extension(char *path)
+int	valid_file_extension(char *path)
 {
-  int len;
+	int	len;
 
-  len = ft_strlen(path);
-  if (ft_strncmp(path + len - 4, ".ber", 4) != 0)
-  {
-    error("Invalid file extension. Accepted extension is .ber");
-    return(0);
-  }
-  return (1);
+	len = ft_strlen(path);
+	if (ft_strncmp(path + len - 4, ".ber", 4) != 0)
+	{
+		error("Invalid file extension. Accepted extension is .ber");
+		return (0);
+	}
+	return (1);
 }
 
-void set_characters(t_game *game, int x, int y)
+void	set_characters(t_game *game, int x, int y)
 {
-  if (game->map[x][y] == '1')
+	if (game->map[x][y] == '1')
 		put_image(y * PIXELS, x * PIXELS, game, game->wall);
 	if (game->map[x][y] == '0')
 		put_image(y * PIXELS, x * PIXELS, game, game->floor);
@@ -43,21 +43,21 @@ void set_characters(t_game *game, int x, int y)
 		put_image(y * PIXELS, x * PIXELS, game, game->coin);
 }
 
-int construct_map(t_game *game)
+int	construct_map(t_game *game)
 {
-  int i;
-  int j;
+	int	i;
+	int	j;
 
-  i = 0;
-  while (game->map[i])
-  {
-    j = 0;
-    while (game->map[i][j])
-    {
-      set_characters(game, i, j);
-      j++;
-    }
-    i++;  
-  }
-  return(0);
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			set_characters(game, i, j);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
