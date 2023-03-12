@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <sub> C program to redirect process output to input via pipes and execute specified commands in a file.
+  <sub> So_long is a 2D game project using MinilibX where the player must collect items, avoid obstacles and exit a maze.
   <sub>
 </p>
 
@@ -13,7 +13,7 @@
 <p align="center">
   <a href="#About"> 💡 About the project </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#HowUse"> ⚙️ How to use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-    <a href="#HowWork"> 🕹️ How to play</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#HowPlay"> 🕹️ How to play</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#Credits"> 🏆 Credits</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
@@ -21,7 +21,7 @@
 
 <a id="About"></a>
 ## 💡 About the project
-> This project involves creating a C program that redirects the output of one process to the input of another process using pipes. The goal of the project is to create a program that is capable of executing two commands (e.g., cat and grep) and redirecting the output of the first command as input to the second command using pipes. The program should be able to read a file and execute the commands specified in it.
+> This project is a graphic module project of the programming school 42, where students are challenged to create a 2D game using the MinilibX graphic library. The objective of the game is simple: the player must control a character to collect all the collectibles in a maze and then leave through the exit door.
 
 <br/>
 
@@ -68,4 +68,5 @@ The game's control keys are as follows:
 
 <a id="Credits"></a>
 ## 🏆 Credits
-***Thank you for taking the time to review my project. If you have any questions or would like to connect with me, please feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/jpedroc)***
+| [<img src="https://avatars.githubusercontent.com/u/78514252?v=4" width="300" style="border-radius:50%"><br><sub> João Pedro </sub>](https://www.linkedin.com/in/jpedroc) | <p align="justify">***Thank you for taking the time to review my project. If you have any questions or would like to connect with me, please feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/jpedroc)***</p> | 
+|---|---|
