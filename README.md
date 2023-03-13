@@ -1,3 +1,8 @@
+<p align="center">
+<a href="https://github.com/jpedr0c/42_solong">
+<img src="./so_long.png" height="120" width="120">
+</a>
+</p>
 <h1 align=center>
   <strong> SO_LONG </strong>
 </h1>
